@@ -12,7 +12,7 @@ import { useMediaQuery } from '@mui/material';
 
 export default function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
    const matches = useMediaQuery('(max-width:769px)');
-  console.log(projects);
+
   return (
     <>
       <Head>
@@ -58,13 +58,14 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
             </p>
 
             <Button
+              aria-label='Read more about me'
               auto
               as={Link}
               href="/about"
               className="relative rounded-lg w-20  px-20 py-4 ring-red-500/50 dark:bg-black bg-white ring-offset-black will-change-transform focus:outline-none focus:ring-1 focus:ring-offset-2"
             >
               <span className="absolute  inset-px z-10 grid place-items-center rounded-lg dark:bg-black bg-white bg-gradient-to-t dark:from-neutral-800 text-black dark:text-neutral-300">
-                {`Read More`}
+                {`Read more about me`}
               </span>
               <span
                 aria-hidden

@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <>
       <Layout>
-        <Navbar  variant="floating">
+        <Navbar variant="floating">
           <Navbar.Toggle showIn="xs" aria-label="toggle navigation" />
           <Navbar.Brand hideIn="xs">
             <Link
@@ -42,25 +42,26 @@ export default function Header() {
           </Navbar.Brand>
           <Navbar.Content hideIn="xs" variant="underline">
             {navItems?.map(({ label, id, link }) => (
-              <Link
-                className={`px-10 hover:text-orange-500 ${
-                  router.asPath === link
-                    ? "border-orange-500 rounded-sm px-10 py-2 border-b"
-                    : ""
-                }`}
-                href={link}
-                key={id}
-              >
-                {label}
-              </Link>
+              <li key={id}>
+                <Link
+                  className={`px-10 hover:text-orange-500 ${
+                    router.asPath === link
+                      ? "border-orange-500 rounded-sm px-10 py-2 border-b"
+                      : ""
+                  }`}
+                  href={link}
+                >
+                  {label}
+                </Link>
+              </li>
             ))}
           </Navbar.Content>
           <Navbar.Collapse>
             <div className="flex flex-col gap-4">
               {navItems.map(({ label, id, link }) => (
-                <Link key={id} href={link}>
-                  {label}
-                </Link>
+                <li key={id}>
+                  <Link href={link}>{label}</Link>
+                </li>
               ))}
             </div>
           </Navbar.Collapse>

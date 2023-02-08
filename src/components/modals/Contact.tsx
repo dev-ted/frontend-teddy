@@ -15,6 +15,7 @@ export default function Contact() {
   return (
     <div>
       <Button
+        
         auto
         onPress={handler}
         className="relative rounded-lg  px-20 py-4 ring-red-500/50 dark:bg-black bg-white ring-offset-black will-change-transform focus:outline-none focus:ring-1 focus:ring-offset-2"
