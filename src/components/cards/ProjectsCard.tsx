@@ -24,10 +24,10 @@ export default function ProjectsCard({
     <>
       <div
         key={key}
-        className="bg-neutral shadow-md   px-5 dark:border-gray-900 rounded-lg max-w-sm w-[500px] h-full flex flex-col  "
+        className="bg-neutral shadow-md    px-5 dark:border-gray-900 rounded-lg max-w-sm md:w-[500px] w-full m-auto h-full flex flex-col  "
       >
         <Image
-          className="object-contain h-64 w-full"
+          className="object-contain flex justify-center items-center h-64 md:w-full  "
           src={urlFor(image ? image : "")?.url()}
           alt={title}
           width="200"
