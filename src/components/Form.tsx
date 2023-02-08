@@ -9,7 +9,7 @@ import { useTheme } from "@nextui-org/react";
 
 export default function Form() {
   const { isDark, type } = useTheme();
-    const form = useRef();
+    const form = useRef<HTMLFormElement>(null);
 
         const [errors, setErrors] = useState({
                 name: "",
@@ -55,7 +55,7 @@ export default function Form() {
     
     setLoading(true);
 
-    await sendMail(form.current).then((res) => {
+    await sendMail(form).then((res) => {
    
       
         toast.success("Message sent successfully", {

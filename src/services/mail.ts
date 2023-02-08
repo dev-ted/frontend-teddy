@@ -7,7 +7,7 @@ export const sendMail = async (data: any) => {
       .sendForm(
         service_id,
         process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        data,
+        data.current,
         process.env.NEXT_PUBLIC_API_KEY
       )
       .catch((err) => {
