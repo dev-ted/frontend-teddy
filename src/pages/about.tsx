@@ -1,10 +1,51 @@
 import Contact from '@/components/modals/Contact';
+import Head from 'next/head';
 import Image from 'next/image';
 import PageLayout from '@/components/layouts/PageLayout'
 
 export default function about() {
   return (
     <>
+      <Head>
+        <title>
+          Teddy, the Creative Frontend Developer - Expert in React, Next.js,
+          UI/UX, and Progressive Web Apps
+        </title>
+        <meta
+          name="description"
+          content="Meet Teddy, a Creative Developer based in Johannesburg, South Africa dedicated to crafting immersive digital experiences on the web. With expertise in React, Next.js, UI/UX design, and Progressive Web Apps, Teddy is passionate about pushing the limits of what's possible with technology."
+        />
+        <meta
+          name="keywords"
+          content="next js,freelance, developer, freelance developer, frontend, react, frontend developer, frontend engineer,  creative, creative developer, creative engineer, tech, johannesburg, software, software developer, portfolio, frontend developer portfolio, creative developer portfolio"
+        ></meta>
+
+        {/* create open graph tags */}
+        <meta property="og:title" content="Teddy, the Creative Frontend Developer - Expert in React, Next.js, UI/UX, and Progressive Web Apps" />
+        <meta property="og:description" content="Meet Teddy, a Creative Developer based in Johannesburg, South Africa dedicated to crafting immersive digital experiences on the web. With expertise in React, Next.js, UI/UX design, and Progressive Web Apps, Teddy is passionate about pushing the limits of what's possible with technology." />
+        <meta property="og:image" content="https://res.cloudinary.com/devtedcloud/image/upload/v1675854371/frontend-teddy/68188559_bbpphr.png" />
+        <meta property="og:url" content="https://frontendted.co.za" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Frontend Teddy" />
+        <meta property="og:locale" content="en_ZA" />
+
+        {/* twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@devted19" />
+        <meta name="twitter:creator" content="@devted19" />
+        <meta name="twitter:title" content="Teddy, the Creative Frontend Developer - Expert in React, Next.js, UI/UX, and Progressive Web Apps" />
+
+        <meta name="twitter:description" content="Meet Teddy, a Creative Developer based in Johannesburg, South Africa dedicated to crafting immersive digital experiences on the web. With expertise in React, Next.js, UI/UX design, and Progressive Web Apps, Teddy is passionate about pushing the limits of what's possible with technology." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/devtedcloud/image/upload/v1675854371/frontend-teddy/68188559_bbpphr.png" />
+        
+        
+        
+        
+       
+        
+        
+
+      </Head>
       <PageLayout>
         <section className="w-full h-96">
           <div className="max-w-screen-lg h-96  mt-10 mx-auto flex flex-col justify-center items-center">
@@ -14,7 +55,6 @@ export default function about() {
             <h1 className="bg-gradient-to-l -translate-y-[12.5rem] text-center grid place-items-center md:h-[100px]  px-10 font-black  from-pink-500  to-orange-400 bg-clip-text text-transparent text-6xl md:text-7xl">
               A few things about me
             </h1>
-         
           </div>
         </section>
 

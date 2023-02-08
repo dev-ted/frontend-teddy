@@ -7,4 +7,15 @@ module.exports = {
   autoLastmod: true,
   changefreq: "daily",
   priority: 0.7,
+  // robots
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+     
+    ],
+  },
+  
 };
