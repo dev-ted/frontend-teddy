@@ -5,8 +5,8 @@ export const sendMail = async (data: any) => {
   try {
     return await emailjs
       .sendForm(
-        service_id,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        "service_qexluw5",
+        "template_xj1glb5",
         data.current,
         process.env.NEXT_PUBLIC_API_KEY
       )
