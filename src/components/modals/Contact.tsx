@@ -9,7 +9,7 @@ export default function Contact() {
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
+    
   };
 
   return (

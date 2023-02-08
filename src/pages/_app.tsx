@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import "react-toastify/dist/ReactToastify.css";
 
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 
@@ -6,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from 'next/app'
 import { Poppins } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
+import { ToastContainer } from "react-toastify";
 
 // If loading a variable font, you don't need to specify the font weight
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
@@ -37,6 +39,7 @@ const darkTheme = createTheme({
      <NextUIProvider>
        <main className={poppins.className}>
          <Component {...pageProps} />
+         <ToastContainer />
          <Analytics />
        </main>
      </NextUIProvider>

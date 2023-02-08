@@ -1,17 +1,19 @@
-import { Button, Text } from '@nextui-org/react';
+import { Button, Text } from "@nextui-org/react";
 
-import Contact from '@/components/modals/Contact';
-import Head from 'next/head'
-import { InferGetStaticPropsType } from 'next';
-import LandingHero from '@/components/heros/LandingHero';
-import Link from 'next/link';
-import PageLayout from '@/components/layouts/PageLayout';
-import ProjectsCard from '@/components/cards/ProjectsCard';
-import { client } from '@/components/utils/config';
-import { useMediaQuery } from '@mui/material';
+import Contact from "@/components/modals/Contact";
+import Head from "next/head";
+import { InferGetStaticPropsType } from "next";
+import LandingHero from "@/components/heros/LandingHero";
+import Link from "next/link";
+import PageLayout from "@/components/layouts/PageLayout";
+import ProjectsCard from "@/components/cards/ProjectsCard";
+import { client } from "@/components/utils/config";
+import { useMediaQuery } from "@mui/material";
 
-export default function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
-   const matches = useMediaQuery('(max-width:769px)');
+export default function Home({
+  projects,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const matches = useMediaQuery("(max-width:769px)");
 
   return (
     <>
@@ -26,7 +28,7 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
         <LandingHero />
 
         <section className=" md:h-[600px] w-full flex flex-col mt-10  gap-10 items-center  m-auto relative  ">
-          <h3 className="  text-5xl  md:text-9xl  tracking-wide capitalize text-center    p-12 font-black">
+          <h3 className="  text-4xl  md:text-9xl  tracking-wide capitalize text-center    p-12 font-black">
             {`Let's`} make your projects
             <span className="bg-gradient-to-r md:px-10 ml-2  from-pink-500  to-orange-400 bg-clip-text text-transparent">
               Pretty
@@ -58,7 +60,7 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
             </p>
 
             <Button
-              aria-label='Read more about me'
+              aria-label="Read more about me"
               auto
               as={Link}
               href="/about"
@@ -121,7 +123,7 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
                 )}
             </div>
 
-            <div className='px-20 py-10'>
+            <div className="md:px-20 px-10 py-10">
               <Button
                 auto
                 as={Link}
@@ -144,19 +146,14 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
   );
 }
 
+export async function getStaticProps() {
+  const projects = await client.fetch(`*[_type == "projects"]`);
 
-  export async function getStaticProps() {
-    const projects = await client.fetch(`*[_type == "projects"]`);
-    
+  return {
+    props: {
+      projects,
+    },
 
-    return {
-      props: {
-        projects,
-      },
-
-      revalidate: 10,
-    };
-  }
-
-
-
+    revalidate: 10,
+  };
+}

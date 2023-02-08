@@ -3,7 +3,7 @@ import React from "react";
 
 export default function LandingHero() {
   return (
-    <section className="relative  flex md:min-h-[750px] h-full md:gap-5 gap-20 flex-col items-center justify-center   bg-neutral  z-0">
+    <section className="relative  flex md:min-h-[750px] h-full md:gap-5 gap-20 flex-col items-center justify-center overflow-hidden   bg-neutral  z-0">
       <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
         <div className="absolute inset-auto z-50 h-[200px] w-[32rem] -translatesss-y-1/2 rounded-full bg-gradient-to-r from-pink-500 to-orange-400 opacity-50 blur-3xl"></div>
       </div>
@@ -41,9 +41,7 @@ export default function LandingHero() {
             </span>{" "}
           </span>
         </h2>
-       
       </div>
-      
     </section>
   );
 }
