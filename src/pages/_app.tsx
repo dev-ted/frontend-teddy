@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 
+import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from 'next/app'
 import { Poppins } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
@@ -36,6 +37,7 @@ const darkTheme = createTheme({
      <NextUIProvider>
        <main className={poppins.className}>
          <Component {...pageProps} />
+         <Analytics />
        </main>
      </NextUIProvider>
    </ThemeProvider>
