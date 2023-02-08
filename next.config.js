@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-// const headers = require("./securityHeaders");
+const headers = require("./securityHeaders");
 const runtimeCaching = require("next-pwa/cache");
 const withPWA = require("next-pwa")({
   dest: "public",
@@ -16,14 +16,14 @@ const nextConfig = {
     domains: ["res.cloudinary.com", "cdn.sanity.io"],
   },
   // add security headers
-  // async headers() {
-  //   return [
-  //     {
-  //       source: "/(.*)",
-  //       headers,
-  //     },
-  //   ];
-  // },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers,
+      },
+    ];
+  },
 };
 
 module.exports = withPWA(nextConfig);
