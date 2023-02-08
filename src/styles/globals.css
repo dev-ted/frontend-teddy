@@ -109,3 +109,11 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Toastify__toast-container{
+  z-index: 999999;
+  
+}
+.Toastify__toast-container--top-right{
+  z-index: 9999;
+}

@@ -1,10 +1,15 @@
-import { Button, Input, Textarea } from "@nextui-org/react";
+import { Button, Input, Loading, Textarea } from "@nextui-org/react";
+import { useRef, useState } from "react";
 
 import Link from "next/link";
 import { SendButton } from "./utils/Icons";
-import { useState } from "react";
+import { sendMail } from "@/services/mail";
+import { toast } from "react-toastify";
+import { useTheme } from "@nextui-org/react";
 
 export default function Form() {
+  const { isDark, type } = useTheme();
+    const form = useRef();
 
         const [errors, setErrors] = useState({
                 name: "",
@@ -14,6 +19,7 @@ export default function Form() {
        
 
         })
+  const [loading, setLoading] = useState(false);
 
         const [values, setValues] = useState({
                 name: "",
@@ -21,6 +27,76 @@ export default function Form() {
                 phone: "",
                 message: "",
         })
+  
+
+
+  const handleSubmit = async () => {
+
+  
+
+    // e.preventDefault();
+
+    if (!values?.name) {
+      setErrors({ ...errors, name: "Name is required" });
+      return null;
+    }
+    if (!values?.email) {
+      setErrors({ ...errors, email: "Email is required" });
+      return null;
+    }
+    if (!values?.phone) {
+      setErrors({ ...errors, phone: "Phone is required" });
+      return null;
+    }
+    if (!values?.message) {
+      setErrors({ ...errors, message: "Message is required" });
+      return null;
+    }
+    
+    setLoading(true);
+
+    await sendMail(form.current).then((res) => {
+   
+      
+        toast.success("Message sent successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: type === "dark" ? "dark" : "light",
+        });
+        setValues({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      
+      setLoading(false);
+    }
+    ).catch((err) => {
+      setLoading(false);
+      console.log(err);
+      toast.error("Something went wrong, please try again later.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: type === "dark" ? "dark" : "light",
+      });
+    }
+    )
+  };
+
+    
+    
+ 
         
   return (
     <section className="max-w-screen-lg flex flex-col py-10 gap-4 h-full">
@@ -88,17 +164,19 @@ export default function Form() {
           </Link>
         </div>
       </div>
-      <form className="w-full  flex flex-col gap-10 px-10">
-        <h6 className="text-center py-8">Leave me a message</h6>
+      <form ref={form} className="w-full  flex flex-col gap-10 px-10">
+        <h6 className=" text-3xl text-center py-8">Leave me a message</h6>
 
         <div>
           <Input
             underlined
+            required
+            name="from_name"
             value={values.name}
             className="w-full"
-            onChange={(e) =>
-              setErrors({ ...errors, name: "Please provide your name" })
-            }
+            onChange={(e) => {
+              setValues({ ...values, name: e.target.value });
+            }}
             fullWidth
             clearable
             helperColor="error"
@@ -112,6 +190,8 @@ export default function Form() {
             underlined
             className="w-full"
             fullWidth
+            name="reply_to"
+            required
             type="email"
             clearable
             helperColor="error"
@@ -129,8 +209,11 @@ export default function Form() {
             underlined
             className="w-full"
             fullWidth
+            required
             type="tel"
+            name="phone"
             clearable
+            maxLength={10}
             value={values.phone}
             onChange={(e) => {
               setValues({ ...values, phone: e.target.value });
@@ -144,6 +227,8 @@ export default function Form() {
         <div>
           <Textarea
             fullWidth
+            required
+            name="message"
             value={values.message}
             onChange={(e) => {
               setValues({ ...values, message: e.target.value });
@@ -156,18 +241,23 @@ export default function Form() {
           />
         </div>
 
-        <Button
-          auto
-          className="relative rounded-lg  px-20 py-4 md:w-[200px]  dark:bg-black bg-white ring-offset-black will-change-transform focus:outline-none focus:ring-1 focus:ring-offset-2"
-        >
-          <span className="absolute  inset-px z-10 grid place-items-center rounded-lg dark:bg-black bg-white bg-gradient-to-t dark:from-neutral-800 text-black dark:text-neutral-300">
-            Submit
-          </span>
-          <span
-            aria-hidden
-            className="absolute inset-0 z-0 scale-x-[2.0] blur before:absolute before:inset-0 before:top-1/2 before:aspect-square before:animate-disco before:bg-gradient-conics before:from-gray-200 before:via-pink-500 before:to-orange-400"
-          />
-        </Button>
+        {loading ? (
+          <Loading type="spinner" size="lg" />
+        ) : (
+          <Button
+            onPress={handleSubmit}
+            auto
+            className="relative rounded-lg  px-20 py-4 md:w-[200px]  dark:bg-black bg-white ring-offset-black will-change-transform focus:outline-none focus:ring-1 focus:ring-offset-2"
+          >
+            <span className="absolute  inset-px z-10 grid place-items-center rounded-lg dark:bg-black bg-white bg-gradient-to-t dark:from-neutral-800 text-black dark:text-neutral-300">
+              Submit
+            </span>
+            <span
+              aria-hidden
+              className="absolute inset-0 z-0 scale-x-[2.0] blur before:absolute before:inset-0 before:top-1/2 before:aspect-square before:animate-disco before:bg-gradient-conics before:from-gray-200 before:via-pink-500 before:to-orange-400"
+            />
+          </Button>
+        )}
       </form>
     </section>
   );

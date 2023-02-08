@@ -21,6 +21,7 @@ module.exports = {
         "gradient-2": "animate-gradient-2 4s infinite",
         "gradient-3": "animate-gradient-3 4s infinite",
         disco: "disco 1.5s linear infinite",
+        typing: "typing 5s infinite steps(34)",
       },
       keyframes: {
         "animate-gradient-1": {
@@ -38,6 +39,17 @@ module.exports = {
         disco: {
           "0%": { transform: "translateY(-50%) rotate(0deg)" },
           "100%": { transform: "translateY(-50%) rotate(360deg)" },
+        },
+        typing: {
+          "0%": {
+            width: "0",
+          },
+          "80%": {
+            width: "34ch",
+          },
+          "100%": {
+            width: "34ch",
+          },
         },
       },
     },
