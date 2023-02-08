@@ -42,26 +42,30 @@ export default function Header() {
           </Navbar.Brand>
           <Navbar.Content hideIn="xs" variant="underline">
             {navItems?.map(({ label, id, link }) => (
-              <li key={id}>
-                <Link
-                  className={`px-10 hover:text-orange-500 ${
-                    router.asPath === link
-                      ? "border-orange-500 rounded-sm px-10 py-2 border-b"
-                      : ""
-                  }`}
-                  href={link}
-                >
-                  {label}
-                </Link>
-              </li>
+              <ul key={id}>
+                <li>
+                  <Link
+                    className={`px-10 hover:text-orange-500 ${
+                      router.asPath === link
+                        ? "border-orange-500 rounded-sm px-10 py-2 border-b"
+                        : ""
+                    }`}
+                    href={link}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              </ul>
             ))}
           </Navbar.Content>
           <Navbar.Collapse>
             <div className="flex flex-col gap-4">
               {navItems.map(({ label, id, link }) => (
-                <li key={id}>
-                  <Link href={link}>{label}</Link>
-                </li>
+                <ul key={id}>
+                  <li>
+                    <Link href={link}>{label}</Link>
+                  </li>
+                </ul>
               ))}
             </div>
           </Navbar.Collapse>
