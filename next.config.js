@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const headers = require("./securityHeaders.ts");
+const headers = require("./securityHeaders");
 const runtimeCaching = require("next-pwa/cache");
 const withPWA = require("next-pwa")({
   dest: "public",
