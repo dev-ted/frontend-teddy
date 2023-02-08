@@ -1,0 +1,33 @@
+{
+  "theme_color": "#ec0e5b",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Fronted Teddy",
+  "short_name": "frontend teddy",
+  "description": "Meet Teddy, a Creative Developer based in Johannesburg, South Africa dedicated to crafting immersive digital experiences on the web. With expertise in React, Next.js, UI/UX design, and Progressive Web Apps, Teddy is passionate about pushing the limits of what's possible with technology.",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.config.js", "src/services/mail.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.config.js", "src/services/mail.ts", "securityHeaders.js"],
   "exclude": ["node_modules"]
 }
