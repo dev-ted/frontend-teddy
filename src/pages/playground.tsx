@@ -1,8 +1,16 @@
+import Head from 'next/head';
 import React from 'react'
 
 export default function playground() {
   return (
-    <div>
+          <div>
+                  
+                  <Head>
+                          
+                          <title>Happy Valentines Day </title>
+                          <meta content="Happy valentines mfs"  />
+                          
+                  </Head>
       <div className="flex bg-white min-h-screen items-center flex-col justify-center">
         <div className="animate-heartbeat flex h-60 w-60 items-center justify-center bg-gradient-to-t from-pink-600 via-red-400 to-amber-200 will-change-transform">
           <div className="relative flex h-full w-full items-center justify-center bg-white mix-blend-screen">
