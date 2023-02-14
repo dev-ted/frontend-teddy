@@ -89,7 +89,7 @@ export default function Home({
             </span>
           </h3>
 
-          <h4 className=" md:text-4xl px-5 text-2xl font-semibold">
+          <h4 className=" md:text-4xl px-5 text-2xl text-center font-semibold">
             Have an exciting{" "}
             <span className="bg-gradient-to-r  from-pink-500  to-orange-400 bg-clip-text text-transparent">
               project
