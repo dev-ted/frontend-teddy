@@ -22,6 +22,7 @@ module.exports = {
         "gradient-3": "animate-gradient-3 4s infinite",
         disco: "disco 1.5s linear infinite",
         typing: "typing 5s infinite steps(34)",
+        heartbeat: "heartbeat 1.5s alternate infinite",
       },
       keyframes: {
         "animate-gradient-1": {
@@ -49,6 +50,14 @@ module.exports = {
           },
           "100%": {
             width: "34ch",
+          },
+        },
+        heartbeat: {
+          from: {
+            transform: "scale(1)",
+          },
+          to: {
+            transform: "scale(1.5)",
           },
         },
       },
