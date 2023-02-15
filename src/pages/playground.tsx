@@ -19,7 +19,7 @@ export default function playground() {
           </div>
         </div>
         <h1 className="relative bg-gradient-to-r  from-rose-500 via-amber-300 to-red-500 bg-clip-text text-transparent uppercase top-0.5 p-50  text-center text-4xl font-black ">
-          Happy <span>Valentines</span> Day
+      {process.env.message}
         </h1>
       </div>
     </div>
