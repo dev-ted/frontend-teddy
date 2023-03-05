@@ -143,6 +143,7 @@ export default function Home({
             <div className=" px-10 grid grid-cols-1 md:grid-cols-3 gap-20">
               {projects
                 ?.slice(0, 3)
+                .sort(() => (Math.random() > 0.5 ))
                 ?.map(
                   ({
                     description,
@@ -208,6 +209,6 @@ export async function getStaticProps() {
       projects,
     },
 
-    revalidate: 10,
+    revalidate: 1,
   };
 }
