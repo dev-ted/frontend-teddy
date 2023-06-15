@@ -74,8 +74,8 @@ export default function Projects({
           <Contact />
         </section>
 
-        <section className="max-w-screen-xl p-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
+        <section className="max-w-screen-xl mx-auto p-10">
+          <div className="grid grid-cols-1 mx-auto md:grid-cols-3 gap-20">
             {projects?.map(
               ({
                 description,

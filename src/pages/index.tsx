@@ -81,8 +81,8 @@ export default function Home({
       <PageLayout>
         <LandingHero />
 
-        <section className=" md:h-[600px] w-full flex flex-col mt-10  gap-10 items-center  m-auto relative  ">
-          <h3 className="  text-4xl  md:text-9xl  tracking-wide capitalize text-center    p-12 font-black">
+        <section className="  md:h-[600px] w-full flex flex-col mt-10  gap-10 items-center  m-auto relative  ">
+          <h3 className=" animate-fade-up animate-ease-linear animate-normal animate-fill-forwards text-4xl  md:text-9xl  tracking-wide capitalize text-center    p-12 font-black">
             {`Let's`} make your projects
             <span className="bg-gradient-to-r md:px-10 ml-2  from-pink-500  to-orange-400 bg-clip-text text-transparent">
               Pretty
@@ -143,7 +143,7 @@ export default function Home({
             <div className=" px-10 grid grid-cols-1 md:grid-cols-3 gap-20">
               {projects
                 ?.slice(0, 3)
-                .sort(() => (Math.random() > 0.5 ))
+                .sort(() => Math.random() > 0.5)
                 ?.map(
                   ({
                     description,
